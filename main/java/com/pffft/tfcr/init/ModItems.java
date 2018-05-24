@@ -14,8 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid=TFCR.MODID)
 public class ModItems {
 	
-	public static final ItemOre ITEM_COPPER_ORE = new ItemOre("copper");
-	public static final ItemOre ITEM_IRON_ORE = new ItemOre("iron");
+	public static final ItemOre ITEM_COPPER_ORE = new ItemOre("copper", 2);
+	public static final ItemOre ITEM_IRON_ORE = new ItemOre("iron", 3);
 
 	// List of all items we're keeping track of. Automatically registers them.
 	private static Item[] itemsList = new Item[]{
