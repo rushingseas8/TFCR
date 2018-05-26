@@ -1,3 +1,4 @@
 item.ore_copper.name=Copper Ore
 item.ore_iron.name=Iron Ore
 tile.wood_ash.name=Ash Log
+tile.block_firepit.name=Firepit
