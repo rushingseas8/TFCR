@@ -1,6 +1,7 @@
 package com.pffft.tfcr.init;
 
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.blocks.BlockFirepit;
 import com.pffft.tfcr.blocks.BlockWood;
 
 import net.minecraft.block.Block;
@@ -18,10 +19,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ModBlocks {
 	
 	public static final BlockWood WOOD_ASH = new BlockWood("ash");
+	public static final BlockFirepit GUI_TEST = new BlockFirepit();
 	
 	// List of all blocks we're keeping track of. Automatically registers them.
 	private static Block[] blocksList = new Block[] {
-			WOOD_ASH
+			WOOD_ASH,
+			GUI_TEST
 	};
 	
 	@SubscribeEvent

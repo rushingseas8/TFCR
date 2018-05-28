@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube_column",
     "textures": {
-        "all": "tfcr:blocks/wood_ash"
+        "side": "tfcr:blocks/wood_ash#bark",
+        "end": "tfcr:blocks/wood_ash#log"
     }
 }

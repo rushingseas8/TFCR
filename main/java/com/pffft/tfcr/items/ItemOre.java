@@ -4,7 +4,6 @@ import org.apache.commons.io.monitor.FileAlterationListener;
 
 import com.pffft.tfcr.TFCR;
 
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -30,36 +29,10 @@ public class ItemOre extends Item implements ItemInventoryRegisterer{
 		
 		this.meltingTemp = meltingTemp;
 	}
-
+	
 	@Override
 	public void registerSelf(ModelRegistryEvent event) {
 		for (int i = 0; i < MAX_DATA_VALUES; i++)
 			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(getRegistryName() + "_" + i, "inventory"));
 	}
-	
-	
-	
-	/*
-	public void registerSelf() {		
-		
-        ResourceLocation[] locations = new ResourceLocation[MAX_DATA_VALUES];
-        for (int i = 0; i < MAX_DATA_VALUES; i++) {
-            locations[i] = new ResourceLocation(TFCR.MODID + ":" + getUnlocalizedName() + "_" + i);
-        }
-
-        ItemMeshDefinition def = new ItemMeshDefinition() {
-
-            @Override
-            public ModelResourceLocation getModelLocation(ItemStack stack) {
-                int damage = stack.getItemDamage();
-                if (damage >= 0 && damage < MAX_DATA_VALUES) {
-                    return new ModelResourceLocation(locations[damage], "inventory");
-                }
-                return null;
-            }
-        };
-        ModelLoader.setCustomMeshDefinition(this, def);
-        ModelBakery.registerItemVariants(this, locations);
-    }
-    */
 }

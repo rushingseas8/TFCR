@@ -1,13 +1,18 @@
 package com.pffft.tfcr.init;
 
+import javax.annotation.Resource;
+
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.items.ItemInventoryRegisterer;
 import com.pffft.tfcr.items.ItemOre;
 
+import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
