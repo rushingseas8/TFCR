@@ -1,5 +1,8 @@
 item.ore_copper.name=Copper Ore
 item.ore_iron.name=Iron Ore
+item.ore_bismuth.name=Bismuth Ore
+
+itemGroup.tab_custom_ores=Custom Ores
 tile.wood_ash.name=Ash Log
 tile.block_firepit.name=Firepit
 generator.TerraFirmaCraft=TFC Default
