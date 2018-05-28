@@ -2,6 +2,7 @@ package com.pffft.tfcr.gui;
 
 import java.awt.Color;
 
+import org.lwjgl.opengl.GL11;
 import org.omg.PortableServer.ID_ASSIGNMENT_POLICY_ID;
 
 import com.pffft.tfcr.TFCR;
@@ -38,16 +39,22 @@ public class GuiFirepit extends GuiContainer {
 
 		//super.drawScreen(mouseX, mouseY, partialTicks);
 		
-		int middleX = width / 2;
-		int middleY = height / 2;
+		float xScale = width / 256f;
+		float yScale = height / 256f;
 		
 		int marginHorizontal = (width - xSize) / 2;
         int marginVertical = (height - ySize) / 2;
+        
+        GlStateManager.pushMatrix();
+        GlStateManager.scale(xScale, yScale, 1f);
         
 		//drawCenteredString(fontRenderer, "Hello world", middleX, middleY, 0x0000FF00);
 		mc.getTextureManager().bindTexture(firepitGUITexture);
 		//drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 256, 256);
 		drawModalRectWithCustomSizedTexture(marginHorizontal, marginVertical, 0, 0, xSize, ySize, 256, 256);
+		//drawTexturedModalRect(marginHorizontal, marginVertical, 0, 0, 256, 256);
+		
+		GlStateManager.popMatrix();
 	}
 
 	@Override
