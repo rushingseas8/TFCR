@@ -2,7 +2,9 @@ package com.pffft.tfcr.init;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.biomes.BiomeTFCRPlains;
+import com.pffft.tfcr.worldgen.WorldTypeTFCR;
 
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.biome.BiomeBeach;
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid=TFCR.MODID)
 public class ModBiomes {
 	
+	public static final WorldTypeTFCR wt =  new WorldTypeTFCR();
+	
 	public static final BiomeTFCRPlains testPlains = new BiomeTFCRPlains(new BiomeProperties(BiomeTFCRPlains.name));
 	
 	private static Biome[] biomesList = new Biome[] {
@@ -27,6 +31,7 @@ public class ModBiomes {
 	@SubscribeEvent
 	public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 		//removeOtherBiomes();
+		
 		for (int i = 0; i < biomesList.length; i++) {
 			event.getRegistry().register(biomesList[i]);
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(biomesList[i], 10));
