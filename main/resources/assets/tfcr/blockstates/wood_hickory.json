@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "minecraft:cube_column",
+        "textures": {
+            "side": "tfcr:blocks/wood/bark/wood_hickory",
+            "end": "tfcr:blocks/wood/log/wood_hickory"
+        }
+    },
+    "variants": {
+        "normal": [ { } ],
+        "inventory": [ { } ]
+    }
+}

@@ -22,16 +22,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid=TFCR.MODID)
 public class ModItems {
 	
-	// A custom Creative Tab for storing all of our new ores
-	public static final CreativeTabs TAB_CUSTOM_ORES = (new CreativeTabs("tab_custom_ores") {
-
-		@Override
-		public ItemStack getTabIconItem() {
-			return new ItemStack(ITEM_COPPER_ORE);
-		}
-		
-	});
-	
 	public static final ItemOre ITEM_COPPER_ORE = new ItemOre("copper", 2);
 	public static final ItemOre ITEM_IRON_ORE = new ItemOre("iron", 3);
 	public static final ItemOre ITEM_BISMUTH_ORE = new ItemOre("bismuth", 0);

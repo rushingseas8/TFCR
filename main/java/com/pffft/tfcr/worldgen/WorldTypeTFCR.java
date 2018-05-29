@@ -38,7 +38,7 @@ public class WorldTypeTFCR extends WorldType {
 	public BiomeProvider getBiomeProvider(World world) {
 		// TODO Auto-generated method stub
 		//return new BiomeProvider(world.getWorldInfo());
-		return new BiomeProviderSingle(Biomes.PLAINS);
+		return new BiomeProviderSingle(ModBiomes.BIOME_TFCR_FOREST);
 	}
 	
 	@Override

@@ -12,9 +12,9 @@ public class BiomeProviderTFCR extends BiomeProvider {
 	public BiomeProviderTFCR(World world) {
 		super(world.getWorldInfo());
 		allowedBiomes.clear();
-		allowedBiomes.add(ModBiomes.testPlains);
+		allowedBiomes.add(ModBiomes.BIOME_TFCR_PLAINS);
 		
 		getBiomesToSpawnIn().clear();
-		getBiomesToSpawnIn().add(ModBiomes.testPlains);
+		getBiomesToSpawnIn().add(ModBiomes.BIOME_TFCR_PLAINS);
 	}
 }

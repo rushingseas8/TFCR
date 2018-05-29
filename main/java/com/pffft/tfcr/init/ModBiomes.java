@@ -1,6 +1,8 @@
 package com.pffft.tfcr.init;
 
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.biomes.BiomeTFCRBase;
+import com.pffft.tfcr.biomes.BiomeTFCRForest;
 import com.pffft.tfcr.biomes.BiomeTFCRPlains;
 import com.pffft.tfcr.worldgen.WorldTypeTFCR;
 
@@ -22,10 +24,12 @@ public class ModBiomes {
 	
 	public static final WorldTypeTFCR wt =  new WorldTypeTFCR();
 	
-	public static final BiomeTFCRPlains testPlains = new BiomeTFCRPlains(new BiomeProperties(BiomeTFCRPlains.name));
+	public static final BiomeTFCRPlains BIOME_TFCR_PLAINS = new BiomeTFCRPlains();
+	public static final BiomeTFCRForest BIOME_TFCR_FOREST = new BiomeTFCRForest();
 	
-	private static Biome[] biomesList = new Biome[] {
-		testPlains
+	private static BiomeTFCRBase[] biomesList = new BiomeTFCRBase[] {
+		BIOME_TFCR_PLAINS,
+		BIOME_TFCR_FOREST
 	};
 	
 	@SubscribeEvent
@@ -34,8 +38,9 @@ public class ModBiomes {
 		
 		for (int i = 0; i < biomesList.length; i++) {
 			event.getRegistry().register(biomesList[i]);
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(biomesList[i], 10));
-			BiomeDictionary.addTypes(biomesList[i], BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY);
+			//BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(biomesList[i], 10));
+			//BiomeDictionary.addTypes(biomesList[i], BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY);
+			BiomeManager.addBiome(biomesList[i].biomeType, new BiomeEntry(biomesList[i], biomesList[i].weight));
 		}
 	}
 	

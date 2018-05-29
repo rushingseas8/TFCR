@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "minecraft:cube_column",
+        "textures": {
+            "side": "tfcr:blocks/wood/bark/wood_white_cedar",
+            "end": "tfcr:blocks/wood/log/wood_white_cedar"
+        }
+    },
+    "variants": {
+        "normal": [ { } ],
+        "inventory": [ { } ]
+    }
+}

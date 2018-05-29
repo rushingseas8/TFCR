@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "side": "tfcr:blocks/wood/bark/wood_sycamore",
+        "end": "tfcr:blocks/wood/log/wood_sycamore"
+    }
+}

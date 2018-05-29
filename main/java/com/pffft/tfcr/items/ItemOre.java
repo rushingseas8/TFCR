@@ -3,6 +3,7 @@ package com.pffft.tfcr.items;
 import org.apache.commons.io.monitor.FileAlterationListener;
 
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.init.ModCreativeTabs;
 
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -21,7 +22,7 @@ public class ItemOre extends Item implements ItemInventoryRegisterer{
 	public ItemOre(String name, int meltingTemp) {
 		setUnlocalizedName("ore_" + name);
 		setRegistryName(TFCR.MODID, "ore_" + name);
-		setCreativeTab(com.pffft.tfcr.init.ModItems.TAB_CUSTOM_ORES);
+		setCreativeTab(ModCreativeTabs.CREATIVE_TAB_CUSTOM_ORES);
 		
 		//Support for richness of ores.
 		setHasSubtypes(true);

@@ -1,9 +1,12 @@
 package com.pffft.tfcr;
 
 
+import com.jcraft.jorbis.Block;
 import com.pffft.tfcr.blocks.TileEntityFirepit;
+import com.pffft.tfcr.data.TreeType;
 import com.pffft.tfcr.gui.GuiHandler;
 import com.pffft.tfcr.init.ModBiomes;
+import com.pffft.tfcr.init.ModBlocks;
 import com.pffft.tfcr.init.ModItems;
 
 import net.minecraft.advancements.critereon.BredAnimalsTrigger.Instance;
