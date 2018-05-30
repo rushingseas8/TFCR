@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "tfcr:blocks/wood/leaves/leaves_roseleaves"
+    }
+}

@@ -76,7 +76,6 @@ public class WorldGenTreeClimate extends WorldGenerator {
 		int xOffset = rand.nextInt(16) + 8;
 		int zOffset = rand.nextInt(16) + 8;
 		
-		
 		BlockPos base = worldIn.getHeight(chunkBase.add(xOffset, 0, zOffset));
 		IBlockState state = worldIn.getBlockState(base.down());
 		

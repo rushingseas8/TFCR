@@ -1,0 +1,26 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tfcr:mc_tfcr_barrel.obj"
+    },
+    "variants": {
+        "normal": [ { 
+        	"transform": {
+    			"translation": [0, 0, 0],
+    			"rotation": [ { "y": 90}, {"x": 0}, {"z": 0} ],
+    			"scale": 1
+        	}
+        } ],
+        "inventory": [ { 
+        	"transform": {
+        		"gui": {
+	        		"translation": [0, -0.25, 0],
+	        		"scale": 1.5
+        		},
+        		"ground": {
+        			"scale": 0.5
+        		}
+        	}
+        } ]
+    }
+}

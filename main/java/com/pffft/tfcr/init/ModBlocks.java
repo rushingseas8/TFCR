@@ -1,7 +1,12 @@
 package com.pffft.tfcr.init;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.http.impl.cookie.PublicSuffixFilter;
+
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.blocks.BlockBarrel;
 import com.pffft.tfcr.blocks.BlockFirepit;
+import com.pffft.tfcr.blocks.BlockLeaves;
 import com.pffft.tfcr.blocks.BlockWood;
 
 import net.minecraft.block.Block;
@@ -37,29 +42,77 @@ public class ModBlocks {
 	public static final BlockWood WOOD_WHITE_CEDAR = new BlockWood("white_cedar");
 	public static final BlockWood WOOD_WHITE_ELM = new BlockWood("white_elm");
 	public static final BlockWood WOOD_WILLOW = new BlockWood("willow");
+	public static final BlockWood[] WOODS = new BlockWood[] {
+		WOOD_ACACIA,
+		WOOD_ASH,
+		WOOD_ASPEN,
+		WOOD_BLACKWOOD,
+		WOOD_CHESTNUT,
+		WOOD_DOUGLAS_FIR,
+		WOOD_HICKORY,
+		WOOD_KAPOK,
+		WOOD_MAPLE,
+		WOOD_PALM,
+		WOOD_ROSEWOOD,
+		WOOD_SEQUOIA,
+		WOOD_SYCAMORE,
+		WOOD_WHITE_CEDAR,
+		WOOD_WHITE_ELM,
+		WOOD_WILLOW
+	};
+
+	/**
+	 * Leaf block declarations
+	 */
+	public static final BlockLeaves LEAVES_ACACIA = new BlockLeaves("acacia");
+	public static final BlockLeaves LEAVES_ASH = new BlockLeaves("ash");
+	public static final BlockLeaves LEAVES_ASPEN = new BlockLeaves("aspen");
+	public static final BlockLeaves LEAVES_BLACKWOOD = new BlockLeaves("blackwood");
+	public static final BlockLeaves LEAVES_CHESTNUT = new BlockLeaves("chestnut");
+	public static final BlockLeaves LEAVES_DOUGLAS_FIR = new BlockLeaves("douglas_fir");
+	public static final BlockLeaves LEAVES_HICKORY = new BlockLeaves("hickory");
+	public static final BlockLeaves LEAVES_KAPOK = new BlockLeaves("kapok");
+	public static final BlockLeaves LEAVES_MAPLE = new BlockLeaves("maple");
+	public static final BlockLeaves LEAVES_PALM = new BlockLeaves("palm");
+	public static final BlockLeaves LEAVES_ROSEWOOD = new BlockLeaves("rosewood");
+	public static final BlockLeaves LEAVES_SEQUOIA = new BlockLeaves("sequoia");
+	public static final BlockLeaves LEAVES_SYCAMORE = new BlockLeaves("sycamore");
+	public static final BlockLeaves LEAVES_WHITE_CEDAR = new BlockLeaves("white_cedar");
+	public static final BlockLeaves LEAVES_WHITE_ELM = new BlockLeaves("white_elm");
+	public static final BlockLeaves LEAVES_WILLOW = new BlockLeaves("willow");
+	public static final BlockLeaves[] LEAVES = new BlockLeaves[] {
+		LEAVES_ACACIA,
+		LEAVES_ASH,
+		LEAVES_ASPEN,
+		LEAVES_BLACKWOOD,
+		LEAVES_CHESTNUT,
+		LEAVES_DOUGLAS_FIR,
+		LEAVES_HICKORY,
+		LEAVES_KAPOK,
+		LEAVES_MAPLE,
+		LEAVES_PALM,
+		LEAVES_ROSEWOOD,
+		LEAVES_SEQUOIA,
+		LEAVES_SYCAMORE,
+		LEAVES_WHITE_CEDAR,
+		LEAVES_WHITE_ELM,
+		LEAVES_WILLOW
+	};
 	
 	public static final BlockFirepit BLOCK_FIREPIT = new BlockFirepit();
+	public static final BlockBarrel BLOCK_BARREL = new BlockBarrel();
 	
 	// List of all blocks we're keeping track of. Automatically registers them.
 	private static Block[] blocksList = new Block[] {
-			WOOD_ACACIA,
-			WOOD_ASH,
-			WOOD_ASPEN,
-			WOOD_BLACKWOOD,
-			WOOD_CHESTNUT,
-			WOOD_DOUGLAS_FIR,
-			WOOD_HICKORY,
-			WOOD_KAPOK,
-			WOOD_MAPLE,
-			WOOD_PALM,
-			WOOD_ROSEWOOD,
-			WOOD_SEQUOIA,
-			WOOD_SYCAMORE,
-			WOOD_WHITE_CEDAR,
-			WOOD_WHITE_ELM,
-			WOOD_WILLOW,
+			BLOCK_BARREL,
 			BLOCK_FIREPIT
 	};
+	
+	// Adds in all of the lists of items we have.
+	static {
+		blocksList = ArrayUtils.addAll(blocksList, WOODS);
+		blocksList = ArrayUtils.addAll(blocksList, LEAVES);
+	}
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Block> event) {

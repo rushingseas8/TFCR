@@ -11,9 +11,11 @@ import net.minecraft.init.Blocks;
 
 /**
  * TODO: add growth speed, burn temperature, burn duration, others?
+ * TODO: make this into an enum, and make TFC wood one block with different blockstates using
+ * this enum.
  */
 public class TreeType {
-	
+
 	private static IBlockState leaves_default = Blocks.LEAVES.getDefaultState()
 		.withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK)
 		.withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
@@ -50,6 +52,7 @@ public class TreeType {
     	new TreeType("Willow",		ModBlocks.WOOD_WILLOW.getDefaultState(), leaves_default, 10, 30)
     };
     
+    
 	// The common name of this tree.
 	public String name;
 	
@@ -66,7 +69,7 @@ public class TreeType {
 	// The probability of spawning at a given temperature.
 	public BellCurve temperatureCurve;
 	
-	public TreeType(String name, IBlockState log, IBlockState leaf, int minTemp, int maxTemp) {
+	private TreeType(String name, IBlockState log, IBlockState leaf, int minTemp, int maxTemp) {
 		this.name = name;
 		this.log = log;
 		this.leaf = leaf;

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.gui.GuiFirepit;
+import com.pffft.tfcr.init.ModCreativeTabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -26,7 +27,7 @@ public class BlockFirepit extends Block {
 		super(Material.CLOTH);
 		setUnlocalizedName("block_firepit");
 		setRegistryName(TFCR.MODID, "block_firepit");
-		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+		setCreativeTab(ModCreativeTabs.CREATIVE_TAB_CUSTOM_BLOCKS);
 	}
 	
 	@Override
