@@ -38,13 +38,14 @@ public class WorldTypeTFCR extends WorldType {
 	public BiomeProvider getBiomeProvider(World world) {
 		// TODO Auto-generated method stub
 		//return new BiomeProvider(world.getWorldInfo());
-		return new BiomeProviderSingle(ModBiomes.BIOME_TFCR_FOREST);
+		//return new BiomeProviderSingle(ModBiomes.BIOME_TFCR_FOREST);
+		return new BiomeProviderTFCR(world);
 	}
 	
 	@Override
 	public IChunkGenerator getChunkGenerator(World world, String generatorOptions) {
 		// TODO Auto-generated method stub
-		//return new ChunkGeneratorTFCR(world, world.getSeed());
+		//return new ChunkGeneratorTFCR(world, world.getSeed(), true, generatorOptions);
 		return new ChunkGeneratorOverworld(world, world.getSeed(), true, generatorOptions);
 	}
 	

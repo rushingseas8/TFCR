@@ -7,6 +7,7 @@ import com.pffft.tfcr.data.TreeType;
 import com.pffft.tfcr.gui.GuiHandler;
 import com.pffft.tfcr.init.ModBiomes;
 import com.pffft.tfcr.init.ModBlocks;
+import com.pffft.tfcr.init.ModColorManager;
 import com.pffft.tfcr.init.ModItems;
 
 import net.minecraft.advancements.critereon.BredAnimalsTrigger.Instance;
@@ -49,5 +50,6 @@ public class TFCR {
     @EventHandler
     public void init(FMLInitializationEvent event) {
     	System.out.println(MODID + ":init");
+    	ModColorManager.registerBlockColors();
     }
 }

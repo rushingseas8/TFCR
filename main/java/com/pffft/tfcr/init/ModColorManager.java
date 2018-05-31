@@ -23,12 +23,16 @@ public class ModColorManager implements IBlockColor {
 		BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
 		for (int i = 0; i < ModBlocks.LEAVES.length; i++) {
 			//blockColors.registerBlockColorHandler(, ModBlocks.LEAVES[i]);
+			blockColors.registerBlockColorHandler(ModBlocks.LEAVES[i], ModBlocks.LEAVES[i]);
 		}
+		
+		blockColors.registerBlockColorHandler(ModBlocks.BLOCK_HALF_GRASS, ModBlocks.BLOCK_HALF_GRASS);
 	}
 
 	@Override
 	public int colorMultiplier(IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) {
 		// TODO Auto-generated method stub
-		return 0;
+		int value = worldIn.getBiome(pos).getFoliageColorAtPos(pos);
+		return value;
 	}
 }

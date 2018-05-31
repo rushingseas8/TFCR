@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:tinted_cross",
+    "textures": {
+        "cross": "tfcr:blocks/block_half_grass"
+    }
+}

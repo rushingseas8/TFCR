@@ -38,8 +38,8 @@ public class WorldGenTreeClimate extends WorldGenerator {
 		
 		// Go through all the tree types. If the tree can spawn in this temperature, add its probability
 		// to the weight list.
-		for (int i = 0; i < TreeType.trees.length; i++) {
-			TreeType tree = TreeType.trees[i];
+		for (int i = 0; i < TreeType.values().length; i++) {
+			TreeType tree = TreeType.values()[i];
 			if (temperature > tree.minTemperature && temperature < tree.maxTemperature) {
 				treeTypes.add(tree);
 				treeWeights.add((Double)(tree.temperatureCurve.getValue(temperature)));

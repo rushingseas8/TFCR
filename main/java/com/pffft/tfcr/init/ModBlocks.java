@@ -6,7 +6,9 @@ import org.apache.http.impl.cookie.PublicSuffixFilter;
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.blocks.BlockBarrel;
 import com.pffft.tfcr.blocks.BlockFirepit;
+import com.pffft.tfcr.blocks.BlockHalfGrass;
 import com.pffft.tfcr.blocks.BlockLeaves;
+import com.pffft.tfcr.blocks.BlockSmallWood;
 import com.pffft.tfcr.blocks.BlockWood;
 
 import net.minecraft.block.Block;
@@ -102,10 +104,16 @@ public class ModBlocks {
 	public static final BlockFirepit BLOCK_FIREPIT = new BlockFirepit();
 	public static final BlockBarrel BLOCK_BARREL = new BlockBarrel();
 	
+	public static final BlockHalfGrass BLOCK_HALF_GRASS = new BlockHalfGrass();
+	
+	public static final BlockSmallWood BLOCK_SMALL_WOOD = new BlockSmallWood();
+	
 	// List of all blocks we're keeping track of. Automatically registers them.
 	private static Block[] blocksList = new Block[] {
 			BLOCK_BARREL,
-			BLOCK_FIREPIT
+			BLOCK_FIREPIT,
+			BLOCK_HALF_GRASS,
+			BLOCK_SMALL_WOOD
 	};
 	
 	// Adds in all of the lists of items we have.

@@ -4,6 +4,7 @@ import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.biomes.BiomeTFCRBase;
 import com.pffft.tfcr.biomes.BiomeTFCRForest;
 import com.pffft.tfcr.biomes.BiomeTFCRPlains;
+import com.pffft.tfcr.biomes.BiomeTFCRSnowWasteland;
 import com.pffft.tfcr.worldgen.WorldTypeTFCR;
 
 import net.minecraft.world.WorldType;
@@ -26,10 +27,12 @@ public class ModBiomes {
 	
 	public static final BiomeTFCRPlains BIOME_TFCR_PLAINS = new BiomeTFCRPlains();
 	public static final BiomeTFCRForest BIOME_TFCR_FOREST = new BiomeTFCRForest();
+	public static final BiomeTFCRSnowWasteland BIOME_TFCR_SNOW_WASTELAND = new BiomeTFCRSnowWasteland();
 	
 	private static BiomeTFCRBase[] biomesList = new BiomeTFCRBase[] {
 		BIOME_TFCR_PLAINS,
-		BIOME_TFCR_FOREST
+		BIOME_TFCR_FOREST,
+		BIOME_TFCR_SNOW_WASTELAND
 	};
 	
 	@SubscribeEvent
