@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.items.ItemInventoryRegisterer;
 import com.pffft.tfcr.items.ItemOre;
+import com.pffft.tfcr.items.ItemOre.Richness;
 
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -22,15 +23,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid=TFCR.MODID)
 public class ModItems {
 	
-	public static final ItemOre ITEM_COPPER_ORE = new ItemOre("copper", 2);
-	public static final ItemOre ITEM_IRON_ORE = new ItemOre("iron", 3);
-	public static final ItemOre ITEM_BISMUTH_ORE = new ItemOre("bismuth", 0);
+	public static final ItemOre ITEM_COPPER_ORE_POOR = new ItemOre("copper_poor", 2, Richness.POOR);
+	public static final ItemOre ITEM_IRON_ORE_POOR = new ItemOre("iron_poor", 3, Richness.POOR);
+	public static final ItemOre ITEM_BISMUTH_ORE_POOR = new ItemOre("bismuth_poor", 0, Richness.POOR);
 
 	// List of all items we're keeping track of. Automatically registers them.
 	private static Item[] itemsList = new Item[]{
-		ITEM_COPPER_ORE,
-		ITEM_IRON_ORE,
-		ITEM_BISMUTH_ORE
+		ITEM_COPPER_ORE_POOR,
+		ITEM_IRON_ORE_POOR,
+		ITEM_BISMUTH_ORE_POOR
 	};
 	
 	
