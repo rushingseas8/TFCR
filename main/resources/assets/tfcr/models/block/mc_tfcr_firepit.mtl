@@ -2,12 +2,9 @@
 # Material Count: 1
 
 newmtl default
-Ns 0.000000
 Ka 0.765744 0.765744 0.765744
 Kd 0.789854 0.813333 0.694044
 Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
 d 1.000000
-illum 2
+
 map_Kd tfcr:blocks/wood/bark/wood_ash

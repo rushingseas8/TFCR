@@ -88,6 +88,7 @@ public class WorldGenTreeClimate extends WorldGenerator {
 		
 		int height;
 		switch(tree.name.toLowerCase()) {
+		/*
 			case "acacia":
 				return true;
 			case "ash":
@@ -185,8 +186,13 @@ public class WorldGenTreeClimate extends WorldGenerator {
 				generateBasicTree(worldIn, rand, base, tree, notify, height);
 				
 				return true;
+				*/
 			default:
-				return false;
+				height = 7;
+				generateBasicTrunk(worldIn, base, tree, notify, height);
+				generateEllipsoidLeaves(worldIn, rand, base, tree, notify, height);
+				return true;
+				//return false;
 		}
 	}
 	
@@ -231,6 +237,35 @@ public class WorldGenTreeClimate extends WorldGenerator {
 						if (state.getMaterial() == Material.VINE || state.getMaterial() == Material.AIR) {
 							setBlockAndNotify(worldIn, pos, tree.leaf, notify);
 						}
+					}
+				}
+			}
+		}
+	}
+	
+	private static final int[] breadths = new int[]{1, 1, 2, 2, 1, 1};
+	
+	private void generateEllipsoidLeaves(World worldIn, Random rand, BlockPos basePos, TreeType tree, boolean notify, int height) {
+		// Poof is assumed to be 5 tall.
+		for (int y = basePos.getY() + height - 5; y <= basePos.getY() + height; y++) {
+			int posFromBaseOfLeaves = y - (basePos.getY() + height);
+			//int breadth = 1 - posFromBaseOfLeaves / 2;
+			//int breadth = 4 - Math.abs(y - height + 3);
+			int breadth = breadths[y - basePos.getY() - height + 5];
+			for (int x = basePos.getX() - breadth; x <= basePos.getX() + breadth; x++) {
+				int xOffset = x - basePos.getX();
+				for (int z = basePos.getZ() - breadth; z <= basePos.getZ() + breadth; z++) {
+					int zOffset = z - basePos.getZ();
+					
+					if ((Math.abs(x) == breadth || Math.abs(z) == breadth) && rand.nextInt(4) == 0) {
+						continue;
+					}
+					
+					BlockPos pos = new BlockPos(x, y, z);
+					IBlockState state = worldIn.getBlockState(pos);
+
+					if (state.getMaterial() == Material.VINE || state.getMaterial() == Material.AIR) {
+						setBlockAndNotify(worldIn, pos, tree.leaf, notify);
 					}
 				}
 			}

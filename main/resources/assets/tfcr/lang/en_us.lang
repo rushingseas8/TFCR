@@ -50,5 +50,6 @@ tile.leaves_white_cedar.name=White Cedar Leaves
 tile.block_barrel.name=Barrel
 tile.block_firepit.name=Firepit
 tile.block_half_grass.name=Half-Tall Grass
+tile.block_branch.name=Branch
 
 generator.TerraFirmaCraft=TFC Default

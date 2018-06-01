@@ -13,8 +13,9 @@ public class BiomeTFCRForest extends BiomeTFCRBase {
 	public BiomeTFCRForest() {
 		super("TFCR Forest", BiomeType.WARM);
 		decorator = new BiomeDecoratorClimate();
-		decorator.treesPerChunk = 10;
+		decorator.treesPerChunk = 15;
 		decorator.grassPerChunk = 20;
+		decorator.flowersPerChunk = 2;
 	}
 	
 	@Override

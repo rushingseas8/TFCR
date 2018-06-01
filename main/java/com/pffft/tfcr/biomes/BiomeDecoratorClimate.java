@@ -24,7 +24,7 @@ public class BiomeDecoratorClimate extends BiomeDecorator {
 	@Override
 	public void decorate(World worldIn, Random random, Biome biome, BlockPos pos) {
 		
-		int temperature = 25;
+		int temperature = 6;
 		
 		worldGenTreeClimate.generate(worldIn, random, pos, false, temperature, treesPerChunk);
 		

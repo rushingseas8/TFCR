@@ -54,20 +54,33 @@ public class BlockSmallWood extends Block {
 	public void registerSelf() {
 		Item inventoryItem = Item.getItemFromBlock(this);
 		for (int meta = 0; meta < 4; meta++) {
-			System.out.println("Registering variant: " + "axis=y,width=" + EnumDiameter.values()[meta]);
-			ModelLoader.setCustomModelResourceLocation(inventoryItem, meta * 4, new ModelResourceLocation( inventoryItem.getRegistryName(), "axis=y,width=" + EnumDiameter.values()[meta]));
+			String variant = "axis=y,width=" + EnumDiameter.values()[meta].getName();
+			System.out.println("Registering variant: " + variant);
+			ModelLoader.setCustomModelResourceLocation(inventoryItem, meta * 4, new ModelResourceLocation( inventoryItem.getRegistryName(), variant));
 		}
 	}
 	
 	// Copied from log logic
+	// TODO: the "meta" value is returning 0 always. This indicates that it thinks item metadata is always 0.
+	// Maybe the subblocks aren't registered properly? This is a temporary hack to fix it.
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getStateFromMeta(meta).withProperty(LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
+		
+		
+		//IBlockState normalState = getStateFromMeta(meta);
+		//System.out.println("Get state for placement, meta value " + meta + " width found: " + normalState.getValue(DIAMETER));
+		//System.out.println("Placer's metadata: " + placer.getHeldItemMainhand().getMetadata());
+		int trueMeta = placer.getHeldItemMainhand().getMetadata();
+		
+        return this.getStateFromMeta(trueMeta)
+        		.withProperty(LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
+        		//.withProperty(DIAMETER, EnumDiameter.FOUR);
 	}
 	
 	// From log logic
     public IBlockState withRotation(IBlockState state, Rotation rot) {
+    	System.out.println("With rotation called");
         switch (rot) {
             case COUNTERCLOCKWISE_90:
             case CLOCKWISE_90:
@@ -85,10 +98,6 @@ public class BlockSmallWood extends Block {
                 return state;
         }
     }
-    @Override
-    public boolean isFullBlock(IBlockState state) {
-    	return false;
-    }
    
     @Override
     public boolean isFullCube(IBlockState state) {
@@ -96,17 +105,37 @@ public class BlockSmallWood extends Block {
     }
     
     @Override
+    public boolean isOpaqueCube(IBlockState state) {
+    	return false;
+    }
+    
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+    		ItemStack stack) {
+    	// TODO Auto-generated method stub
+    	//System.out.println("Block placed, metadata is: " + stack.getMetadata());
+    	//System.out.println("Block state on ground width is " + state.getValue(DIAMETER));
+    	//worldIn.setBlockState(pos, this.getStateFromMeta(stack.getMetadata()));
+    	super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+    }
+    
+    @Override
     public int getMetaFromState(IBlockState state) {
     	int diameterVal = state.getValue(DIAMETER).ordinal(); // temporarily 4 values
     	int axisVal = state.getValue(LOG_AXIS).ordinal(); //4 values
-    	
-    	return (diameterVal << 2) + axisVal;
+
+    	//System.out.println("Got meta from state called. Input diameter: " + state.getValue(DIAMETER) + ", input axis: " + state.getValue(LOG_AXIS));
+    	//System.out.println("Returning meta value: " + ((diameterVal * 4) + axisVal));
+    	return (diameterVal * 4) + axisVal;
     }
     
     @Override
     public IBlockState getStateFromMeta(int meta) {
-    	int diameterVal = meta >> 2;
+
+    	//System.out.println("Got input meta: " + meta + ". ");
+    	int diameterVal = meta / 4;
     	int axisVal = meta % 4;
+    	//System.out.println("Therefore, diameter is " + EnumDiameter.values()[diameterVal]);
     	
     	return this.getDefaultState()
     			.withProperty(DIAMETER, EnumDiameter.values()[diameterVal])
