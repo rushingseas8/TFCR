@@ -112,8 +112,8 @@ public class ModBlocks {
 	private static Block[] blocksList = new Block[] {
 			BLOCK_BARREL,
 			BLOCK_FIREPIT,
-			BLOCK_HALF_GRASS,
-			BLOCK_SMALL_WOOD
+			BLOCK_HALF_GRASS
+			//BLOCK_SMALL_WOOD
 	};
 	
 	// Adds in all of the lists of items we have.
@@ -127,6 +127,7 @@ public class ModBlocks {
 		for (int i = 0; i < blocksList.length; i++) {
 			event.getRegistry().register(blocksList[i]);
 		}
+		event.getRegistry().register(BLOCK_SMALL_WOOD);
 	}
 	
 	@SubscribeEvent
@@ -137,6 +138,10 @@ public class ModBlocks {
 			
 			event.getRegistry().register(newItemBlock);
 		}
+		
+		ItemBlock newItemBlock = new ItemBlock(BLOCK_SMALL_WOOD);
+		newItemBlock.setRegistryName(BLOCK_SMALL_WOOD.getRegistryName());
+		event.getRegistry().register(newItemBlock);
 	}
 	
 	@SubscribeEvent
@@ -145,5 +150,7 @@ public class ModBlocks {
 			Item inventoryItem = Item.getItemFromBlock(blocksList[i]);
 			ModelLoader.setCustomModelResourceLocation(inventoryItem, 0, new ModelResourceLocation( inventoryItem.getRegistryName(), "inventory"));
 		}
+		
+		BLOCK_SMALL_WOOD.registerSelf();
 	}
 }
