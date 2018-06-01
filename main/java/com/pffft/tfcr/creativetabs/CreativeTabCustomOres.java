@@ -3,7 +3,7 @@ package com.pffft.tfcr.creativetabs;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import static com.pffft.tfcr.init.ModItems.ITEM_COPPER_ORE;
+import static com.pffft.tfcr.init.ModItems.ITEM_COPPER_ORE_POOR;
 
 public class CreativeTabCustomOres extends CreativeTabs {
 
@@ -15,7 +15,7 @@ public class CreativeTabCustomOres extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ITEM_COPPER_ORE);
+		return new ItemStack(ITEM_COPPER_ORE_POOR);
 	}
 
 }

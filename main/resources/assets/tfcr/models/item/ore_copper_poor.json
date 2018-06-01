@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tfcr:items/ore_iron"
+        "layer0": "tfcr:items/Ores/Poor/native_copper"
      },
      
     "display": {

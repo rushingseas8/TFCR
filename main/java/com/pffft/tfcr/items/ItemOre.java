@@ -14,26 +14,40 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import scala.tools.nsc.interpreter.IMain.StrippingTruncatingWriter;
 
 public class ItemOre extends Item implements ItemInventoryRegisterer{
 	private int meltingTemp;
-	private final int MAX_DATA_VALUES = 4;
+	private String name;
+	private Richness richness;
 	
-	public ItemOre(String name, int meltingTemp) {
+	public ItemOre(String name, int meltingTemp, Richness richness) {
+		this.name = name;
+		this.richness = richness;
 		setUnlocalizedName("ore_" + name);
 		setRegistryName(TFCR.MODID, "ore_" + name);
 		setCreativeTab(ModCreativeTabs.CREATIVE_TAB_CUSTOM_ORES);
-		
-		//Support for richness of ores.
-		setHasSubtypes(true);
-		setMaxDamage(0);
 		
 		this.meltingTemp = meltingTemp;
 	}
 	
 	@Override
 	public void registerSelf(ModelRegistryEvent event) {
-		for (int i = 0; i < MAX_DATA_VALUES; i++)
-			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(getRegistryName() + "_" + i, "inventory"));
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+	
+	public enum Richness {
+		POOR, SMALL, NORMAL, RICH;
+		
+		public String toString() {
+			String toReturn = "Ores/";
+			switch (this) {
+			case POOR: toReturn += "Poor/";
+			case SMALL: toReturn += "Small/";
+			case NORMAL: toReturn += "Normal/";
+			case RICH: toReturn += "Rich/";
+			}
+			return toReturn;
+		}
 	}
 }

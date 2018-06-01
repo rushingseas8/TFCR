@@ -1,6 +1,6 @@
-item.ore_copper.name=Copper Ore
-item.ore_iron.name=Iron Ore
-item.ore_bismuth.name=Bismuth Ore
+item.ore_copper_poor.name=Copper Ore
+item.ore_iron_poor.name=Iron Ore
+item.ore_bismuth_poor.name=Bismuth Ore
 
 itemGroup.tab_custom_ores=TFC Ores
 itemGroup.tab_custom_blocks=TFC Blocks
