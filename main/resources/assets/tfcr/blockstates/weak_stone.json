@@ -1,0 +1,31 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "blocks/stone"
+		},
+		"model": "tfcr:weak_stone"
+	},
+	"variants": {
+		"durability=0": [{
+			"textures": {
+				"overlay": "blocks/stone"
+			}
+		}],
+		"durability=1": [{ 
+			"textures": {
+				"overlay": "blocks/destroy_stage_2"
+			}
+		}],
+		"durability=2": [{ 
+			"textures": {
+				"overlay": "blocks/destroy_stage_5"
+			}
+		}],
+		"durability=3": [{ 
+			"textures": {
+				"overlay": "blocks/destroy_stage_8"
+			} 
+		}]
+	}
+}

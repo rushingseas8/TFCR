@@ -9,8 +9,10 @@ import java.util.Random;
 import javax.swing.text.Position;
 
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.blocks.BlockSmallWood;
 import com.pffft.tfcr.data.BellCurve;
 import com.pffft.tfcr.data.TreeType;
+import com.pffft.tfcr.init.ModBlocks;
 
 import akka.actor.FSM.State;
 import net.minecraft.block.material.Material;
@@ -86,121 +88,125 @@ public class WorldGenTreeClimate extends WorldGenerator {
 		// Set grass to dirt if needed
 		state.getBlock().onPlantGrow(state, worldIn, base.down(), base);
 		
+		IBlockState testState;
+		int nextRand = rand.nextInt(3);
+		if (nextRand == 0) {
+			testState = ModBlocks.WOOD_ASH.getDefaultState();
+		} else if (nextRand == 1) {
+			testState = ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.EIGHT);
+		} else {
+			testState = ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.TWELVE);
+		}
+		
 		int height;
 		switch(tree.name.toLowerCase()) {
-		/*
 			case "acacia":
 				return true;
 			case "ash":
 				height = 4 + rand.nextInt(2);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "aspen":
 				height = 3 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "birch":
 				height = 4 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "blackwood":
 				height = 5 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "chestnut":
 				height = 4 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "douglas_fir":
 				height = 6 + rand.nextInt(5);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "hickory":
 				height = 5 + rand.nextInt(4);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "kapok":
 				height = 7 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "maple":
 				height = 5 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "oak":
 				height = 4 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "palm":
 				height = 6 + rand.nextInt(2);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "pine":
 				height = 7 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "rosewood":
 				height = 4 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "sequoia":
 				height = 10 + rand.nextInt(6);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "spruce":
 				height = 7 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "sycamore":
 				height = 9 + rand.nextInt(5);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "white_cedar":
 				height = 4 + rand.nextInt(2);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "white_elm":
 				height = 4 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
 			case "willow":
 				height = 5 + rand.nextInt(3);
-				generateBasicTree(worldIn, rand, base, tree, notify, height);
+				generateBasicTree(worldIn, rand, base, tree, notify, height, testState);
 				
 				return true;
-				*/
-			default:
-				height = 7;
-				generateBasicTrunk(worldIn, base, tree, notify, height);
-				generateEllipsoidLeaves(worldIn, rand, base, tree, notify, height);
-				return true;
-				//return false;
+				default: return false;
 		}
 	}
 	
 	/**
 	 * Helper function for generating a basic trunk + leaves.
 	 */
-	private void generateBasicTree(World worldIn, Random rand, BlockPos pos, TreeType tree, boolean notify, int height) {
-		generateBasicTrunk(worldIn, pos, tree, notify, height);
+	private void generateBasicTree(World worldIn, Random rand, BlockPos pos, TreeType tree, boolean notify, int height, IBlockState stateIn) {
+		//generateBasicTrunk(worldIn, pos, tree, notify, height);
+		generateBasicTrunkTest(worldIn, pos, stateIn, notify, height);
 		generateBasicLeaves(worldIn, rand, pos, tree, notify, height);
 	}
 	
@@ -212,7 +218,19 @@ public class WorldGenTreeClimate extends WorldGenerator {
 			BlockPos upN = basePos.up(i);
 			IBlockState state = worldIn.getBlockState(upN);
 			if (state.getBlock().isAir(state, worldIn, upN)) {
-				setBlockAndNotify(worldIn, basePos.up(i), tree.log, notify);
+				//setBlockAndNotify(worldIn, basePos.up(i), tree.log, notify);
+				setBlockAndNotify(worldIn, basePos.up(i), ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.EIGHT), notify);
+			}
+		}
+	}
+	
+	private void generateBasicTrunkTest(World worldIn, BlockPos basePos, IBlockState blockState, boolean notify, int height) {
+		for (int i = 0; i < height; i++) {
+			BlockPos upN = basePos.up(i);
+			IBlockState state = worldIn.getBlockState(upN);
+			if (state.getBlock().isAir(state, worldIn, upN)) {
+				//setBlockAndNotify(worldIn, basePos.up(i), tree.log, notify);
+				setBlockAndNotify(worldIn, basePos.up(i), blockState, notify);
 			}
 		}
 	}

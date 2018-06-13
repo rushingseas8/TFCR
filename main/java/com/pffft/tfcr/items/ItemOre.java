@@ -16,7 +16,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import scala.tools.nsc.interpreter.IMain.StrippingTruncatingWriter;
 
-public class ItemOre extends Item implements ItemInventoryRegisterer{
+public class ItemOre extends Item implements IItemSelfRegister {
 	private int meltingTemp;
 	private String name;
 	private Richness richness;
@@ -32,7 +32,7 @@ public class ItemOre extends Item implements ItemInventoryRegisterer{
 	}
 	
 	@Override
-	public void registerSelf(ModelRegistryEvent event) {
+	public void registerRenders(ModelRegistryEvent event) {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
 	

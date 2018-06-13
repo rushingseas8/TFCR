@@ -3,6 +3,8 @@ package com.pffft.tfcr.init;
 import javax.annotation.Resource;
 
 import com.pffft.tfcr.TFCR;
+import com.pffft.tfcr.blocks.ISelfRegister;
+import com.pffft.tfcr.items.IItemSelfRegister;
 import com.pffft.tfcr.items.ItemInventoryRegisterer;
 import com.pffft.tfcr.items.ItemOre;
 import com.pffft.tfcr.items.ItemOre.Richness;
@@ -38,17 +40,22 @@ public class ModItems {
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		for (int i = 0; i < itemsList.length; i++) {
-			event.getRegistry().register(itemsList[i]);
+			if (itemsList[i] instanceof IItemSelfRegister) {
+				((IItemSelfRegister)itemsList[i]).registerItem(event, itemsList[i]);
+			} else {
+				event.getRegistry().register(itemsList[i]);
+			}
 		}
 	}
 	
 	@SubscribeEvent
 	public static void registerRenders(ModelRegistryEvent event) {
 		for (int i = 0; i < itemsList.length; i++) {
-			if (itemsList[i] instanceof ItemInventoryRegisterer)
-				((ItemInventoryRegisterer) itemsList[i]).registerSelf(event);
-			else
+			if (itemsList[i] instanceof ISelfRegister) {
+				((ISelfRegister)itemsList[i]).registerRenders(event);
+			} else {
 				ModelLoader.setCustomModelResourceLocation(itemsList[i], 0, new ModelResourceLocation( itemsList[i].getRegistryName(), "inventory"));
+			}
 		}
 	}
 }

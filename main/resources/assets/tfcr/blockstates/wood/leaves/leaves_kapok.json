@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": [{
+            "model": "tfcr:wood/leaves/leaves_kapok"
+        }]
+    }
+}

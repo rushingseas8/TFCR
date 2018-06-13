@@ -5,6 +5,14 @@ item.ore_bismuth_poor.name=Bismuth Ore
 itemGroup.tab_custom_ores=TFC Ores
 itemGroup.tab_custom_blocks=TFC Blocks
 
+tile.block_barrel.name=Barrel
+tile.block_firepit.name=Firepit
+tile.block_half_grass.name=Half-Tall Grass
+tile.block_branch.name=Branch
+tile.weak_stone.name=Weak Stone
+
+generator.TerraFirmaCraft=TFC Default
+
 tile.wood_acacia.name=Acacia Log
 tile.wood_birch.name=Birch Log
 tile.wood_douglas_fir.name=Douglas Fir Log
@@ -34,10 +42,10 @@ tile.leaves_pine.name=Pine Leaves
 tile.leaves_spruce.name=Spruce Leaves
 tile.leaves_white_elm.name=White Elm Leaves
 tile.leaves_ash.name=Ash Leaves
-tile.leaves_blackleaves.name=Blackleaves Leaves
+tile.leaves_blackwood.name=Blackwood Leaves
 tile.leaves_hickory.name=Hickory Leaves
 tile.leaves_oak.name=Oak Leaves
-tile.leaves_roseleaves.name=Roseleaves Leaves
+tile.leaves_rosewood.name=Rosewood Leaves
 tile.leaves_sycamore.name=Sycamore Leaves
 tile.leaves_willow.name=Willow Leaves
 tile.leaves_aspen.name=Aspen Leaves
@@ -46,10 +54,3 @@ tile.leaves_kapok.name=Kapok Leaves
 tile.leaves_palm.name=Palm Leaves
 tile.leaves_sequoia.name=Sequoia Leaves
 tile.leaves_white_cedar.name=White Cedar Leaves
-
-tile.block_barrel.name=Barrel
-tile.block_firepit.name=Firepit
-tile.block_half_grass.name=Half-Tall Grass
-tile.block_branch.name=Branch
-
-generator.TerraFirmaCraft=TFC Default

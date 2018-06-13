@@ -10,13 +10,14 @@ import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.IStringSerializable;
 
 /**
  * TODO: add growth speed, burn temperature, burn duration, others?
  * TODO: make this into an enum, and make TFC wood one block with different blockstates using
  * this enum.
  */
-public enum TreeType {
+public enum TreeType implements IStringSerializable {
 	
 	ACACIA		("Acacia", 		ModBlocks.WOOD_ACACIA, 		ModBlocks.LEAVES_ACACIA, 28, 50),
 	ASH			("Ash",			ModBlocks.WOOD_ASH, 		ModBlocks.LEAVES_ASH, 4, 24),
@@ -73,6 +74,11 @@ public enum TreeType {
 		this.minTemperature = minTemp;
 		this.maxTemperature = maxTemp;
 		this.temperatureCurve = new BellCurve(minTemp, maxTemp);
+	}
+
+	@Override
+	public String getName() {
+		return name.toLowerCase();
 	}
 	
 }

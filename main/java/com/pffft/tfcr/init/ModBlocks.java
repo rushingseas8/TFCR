@@ -9,7 +9,11 @@ import com.pffft.tfcr.blocks.BlockFirepit;
 import com.pffft.tfcr.blocks.BlockHalfGrass;
 import com.pffft.tfcr.blocks.BlockLeaves;
 import com.pffft.tfcr.blocks.BlockSmallWood;
+import com.pffft.tfcr.blocks.BlockWeakStone;
 import com.pffft.tfcr.blocks.BlockWood;
+import com.pffft.tfcr.blocks.IBlockSelfRegister;
+import com.pffft.tfcr.blocks.ISelfRegister;
+import com.pffft.tfcr.items.IItemSelfRegister;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockNewLog;
@@ -108,12 +112,15 @@ public class ModBlocks {
 	
 	public static final BlockSmallWood BLOCK_SMALL_WOOD = new BlockSmallWood();
 	
+	public static final BlockWeakStone BLOCK_WEAK_STONE = new BlockWeakStone();
+	
 	// List of all blocks we're keeping track of. Automatically registers them.
 	private static Block[] blocksList = new Block[] {
 			BLOCK_BARREL,
 			BLOCK_FIREPIT,
-			BLOCK_HALF_GRASS
-			//BLOCK_SMALL_WOOD
+			BLOCK_HALF_GRASS,
+			BLOCK_SMALL_WOOD,
+			BLOCK_WEAK_STONE
 	};
 	
 	// Adds in all of the lists of items we have.
@@ -123,34 +130,39 @@ public class ModBlocks {
 	}
 	
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Block> event) {
+	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		for (int i = 0; i < blocksList.length; i++) {
-			event.getRegistry().register(blocksList[i]);
+			if (blocksList[i] instanceof IBlockSelfRegister) {
+				((IBlockSelfRegister)blocksList[i]).registerBlock(event, blocksList[i]);
+			} else {
+				event.getRegistry().register(blocksList[i]);
+			}
 		}
-		event.getRegistry().register(BLOCK_SMALL_WOOD);
 	}
 	
 	@SubscribeEvent
 	public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
 		for (int i = 0; i < blocksList.length; i++) {
-			ItemBlock newItemBlock = new ItemBlock(blocksList[i]);
-			newItemBlock.setRegistryName(blocksList[i].getRegistryName());
-			
-			event.getRegistry().register(newItemBlock);
+			if (blocksList[i] instanceof IItemSelfRegister) {
+				((IItemSelfRegister)blocksList[i]).registerItem(event, new ItemBlock(blocksList[i]));
+			} else {
+				ItemBlock newItemBlock = new ItemBlock(blocksList[i]);
+				newItemBlock.setRegistryName(blocksList[i].getRegistryName());
+				
+				event.getRegistry().register(newItemBlock);
+			}
 		}
-		
-		ItemBlock newItemBlock = new ItemBlock(BLOCK_SMALL_WOOD);
-		newItemBlock.setRegistryName(BLOCK_SMALL_WOOD.getRegistryName());
-		event.getRegistry().register(newItemBlock);
 	}
 	
 	@SubscribeEvent
 	public static void registerRenders(ModelRegistryEvent event) {
 		for (int i = 0; i < blocksList.length; i++) {
-			Item inventoryItem = Item.getItemFromBlock(blocksList[i]);
-			ModelLoader.setCustomModelResourceLocation(inventoryItem, 0, new ModelResourceLocation( inventoryItem.getRegistryName(), "inventory"));
+			if (blocksList[i] instanceof ISelfRegister) {
+				((ISelfRegister)blocksList[i]).registerRenders(event);
+			} else {
+				Item inventoryItem = Item.getItemFromBlock(blocksList[i]);
+				ModelLoader.setCustomModelResourceLocation(inventoryItem, 0, new ModelResourceLocation( inventoryItem.getRegistryName(), "inventory"));
+			}
 		}
-		
-		BLOCK_SMALL_WOOD.registerSelf();
 	}
 }

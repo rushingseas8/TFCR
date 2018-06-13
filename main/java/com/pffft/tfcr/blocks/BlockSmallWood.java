@@ -2,6 +2,7 @@ package com.pffft.tfcr.blocks;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.init.ModCreativeTabs;
+import com.pffft.tfcr.items.IItemSelfRegister;
 import com.sun.jna.platform.win32.LMAccess.LOCALGROUP_INFO_0;
 
 import net.minecraft.block.Block;
@@ -18,6 +19,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -27,10 +29,11 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 
-public class BlockSmallWood extends Block {
+public class BlockSmallWood extends Block implements IItemSelfRegister, IBlockSelfRegister {
 	
 	public static final PropertyEnum<EnumDiameter> DIAMETER = PropertyEnum.create("width", EnumDiameter.class);
     public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
@@ -51,8 +54,18 @@ public class BlockSmallWood extends Block {
 			items.add(new ItemStack(this, 1, i << 2));
 		}
 	}
+
+	// Begin custom registration in Forge game registries
 	
-	public void registerSelf() {
+	@Override
+	public void registerItem(RegistryEvent.Register<Item> event, Item item) {
+		ItemBlock newItemBlock = (ItemBlock)item;
+		newItemBlock.setRegistryName(this.getRegistryName());
+		event.getRegistry().register(newItemBlock);
+	}
+	
+	@Override
+	public void registerRenders(ModelRegistryEvent event) {
 		Item inventoryItem = Item.getItemFromBlock(this);
 		for (int meta = 0; meta < 4; meta++) {
 			String variant = "axis=y,width=" + EnumDiameter.values()[meta].getName();
@@ -60,6 +73,8 @@ public class BlockSmallWood extends Block {
 			ModelLoader.setCustomModelResourceLocation(inventoryItem, meta * 4, new ModelResourceLocation( inventoryItem.getRegistryName(), variant));
 		}
 	}
+	
+	// End custom registration
 	
 	// Copied from log logic
 	// TODO: the "meta" value is returning 0 always. This indicates that it thinks item metadata is always 0.
