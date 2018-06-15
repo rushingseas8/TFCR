@@ -1,10 +1,6 @@
 # TODO: This should all be auto-generated at some point.
 # For now it's all pre-written here.
-langfileText = '''item.ore_copper_poor.name=Copper Ore
-item.ore_iron_poor.name=Iron Ore
-item.ore_bismuth_poor.name=Bismuth Ore
-
-itemGroup.tab_custom_ores=TFC Ores
+langfileText = '''itemGroup.tab_custom_ores=TFC Ores
 itemGroup.tab_custom_blocks=TFC Blocks
 
 tile.block_barrel.name=Barrel
@@ -21,3 +17,4 @@ langfile.write(langfileText)
 langfile.close()
 
 import blocks.main
+import items.main

@@ -1,7 +1,6 @@
 package com.pffft.tfcr.init;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.http.impl.cookie.PublicSuffixFilter;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.blocks.BlockBarrel;
@@ -16,7 +15,6 @@ import com.pffft.tfcr.blocks.ISelfRegister;
 import com.pffft.tfcr.items.IItemSelfRegister;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockNewLog;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

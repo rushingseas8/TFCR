@@ -1,9 +1,9 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tfcr:items/Ores/Poor/bismuthinite"
+        "layer0": "tfcr:items/ore/normal/selenite"
      },
-     
+
     "display": {
         "thirdperson": {
             "rotation": [-90,0,0],

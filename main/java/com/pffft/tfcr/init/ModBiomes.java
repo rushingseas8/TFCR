@@ -7,15 +7,9 @@ import com.pffft.tfcr.biomes.BiomeTFCRPlains;
 import com.pffft.tfcr.biomes.BiomeTFCRSnowWasteland;
 import com.pffft.tfcr.worldgen.WorldTypeTFCR;
 
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.BiomeProperties;
-import net.minecraft.world.biome.BiomeBeach;
-import net.minecraft.world.biome.BiomePlains;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

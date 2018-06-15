@@ -1,9 +1,9 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tfcr:items/Ores/Poor/native_copper"
+        "layer0": "tfcr:items/ingot/pig_iron"
      },
-     
+
     "display": {
         "thirdperson": {
             "rotation": [-90,0,0],

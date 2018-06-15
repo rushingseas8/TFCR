@@ -3,15 +3,12 @@ package com.pffft.tfcr.blocks;
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.init.ModCreativeTabs;
 import com.pffft.tfcr.items.IItemSelfRegister;
-import com.sun.jna.platform.win32.LMAccess.LOCALGROUP_INFO_0;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockLog.EnumAxis;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;

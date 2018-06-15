@@ -1,9 +1,9 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "tfcr:items/Ores/Poor/hematite"
+        "layer0": "tfcr:items/ingot/copper"
      },
-     
+
     "display": {
         "thirdperson": {
             "rotation": [-90,0,0],

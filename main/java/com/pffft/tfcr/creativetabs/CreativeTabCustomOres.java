@@ -1,9 +1,9 @@
 package com.pffft.tfcr.creativetabs;
 
-import net.minecraft.block.Block;
+import com.pffft.tfcr.init.ModItems;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import static com.pffft.tfcr.init.ModItems.ITEM_COPPER_ORE_POOR;
 
 public class CreativeTabCustomOres extends CreativeTabs {
 
@@ -15,7 +15,7 @@ public class CreativeTabCustomOres extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ITEM_COPPER_ORE_POOR);
+		return new ItemStack(ModItems.oresList[0]);
 	}
 
 }

@@ -12,8 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraftforge.fml.common.Mod;
 
 public class BiomeDecoratorClimate extends BiomeDecorator {
 	

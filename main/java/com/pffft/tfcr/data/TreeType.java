@@ -2,7 +2,6 @@ package com.pffft.tfcr.data;
 
 import com.pffft.tfcr.init.ModBlocks;
 
-import ibxm.Instrument;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLeaf;

@@ -1,23 +1,10 @@
 package com.pffft.tfcr.worldgen;
 
-import java.util.ArrayList;
-
-import com.pffft.tfcr.biomes.BiomeTFCRPlains;
-import com.pffft.tfcr.init.ModBiomes;
-
-import net.minecraft.init.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomePlains;
 import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.ChunkGeneratorOverworld;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 
 /**
  * TerraFirmaCraft Reloaded default world type.

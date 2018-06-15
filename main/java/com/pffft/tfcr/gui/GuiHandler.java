@@ -4,12 +4,10 @@ import com.pffft.tfcr.blocks.ContainerFirepit;
 import com.pffft.tfcr.blocks.TileEntityFirepit;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import paulscode.sound.SoundSystemException;
 
 public class GuiHandler implements IGuiHandler {
 

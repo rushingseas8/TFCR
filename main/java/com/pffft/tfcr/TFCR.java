@@ -1,31 +1,17 @@
 package com.pffft.tfcr;
 
 
-import com.jcraft.jorbis.Block;
 import com.pffft.tfcr.blocks.TileEntityFirepit;
-import com.pffft.tfcr.data.TreeType;
 import com.pffft.tfcr.gui.GuiHandler;
-import com.pffft.tfcr.init.ModBiomes;
-import com.pffft.tfcr.init.ModBlocks;
 import com.pffft.tfcr.init.ModColorManager;
-import com.pffft.tfcr.init.ModItems;
 
-import net.minecraft.advancements.critereon.BredAnimalsTrigger.Instance;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.client.model.obj.OBJLoader;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 
 @Mod(
 		modid = TFCR.MODID,

@@ -1,20 +1,12 @@
 package com.pffft.tfcr.items;
 
-import org.apache.commons.io.monitor.FileAlterationListener;
-
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.init.ModCreativeTabs;
 
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import scala.tools.nsc.interpreter.IMain.StrippingTruncatingWriter;
 
 public class ItemOre extends Item implements IItemSelfRegister {
 	private int meltingTemp;
@@ -25,7 +17,7 @@ public class ItemOre extends Item implements IItemSelfRegister {
 		this.name = name;
 		this.richness = richness;
 		setUnlocalizedName("ore_" + name);
-		setRegistryName(TFCR.MODID, "ore_" + name);
+		setRegistryName(TFCR.MODID, "ore/ore_" + name);
 		setCreativeTab(ModCreativeTabs.CREATIVE_TAB_CUSTOM_ORES);
 		
 		this.meltingTemp = meltingTemp;

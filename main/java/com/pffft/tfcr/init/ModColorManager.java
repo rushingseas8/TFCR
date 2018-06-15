@@ -1,14 +1,11 @@
 package com.pffft.tfcr.init;
 
-import com.pffft.tfcr.TFCR;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Handles the registration for colored blocks and items.

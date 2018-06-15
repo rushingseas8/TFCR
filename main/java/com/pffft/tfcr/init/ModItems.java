@@ -1,21 +1,20 @@
 package com.pffft.tfcr.init;
 
-import javax.annotation.Resource;
+import java.util.Arrays;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.blocks.ISelfRegister;
+import com.pffft.tfcr.data.MetalType;
+import com.pffft.tfcr.data.OreType;
 import com.pffft.tfcr.items.IItemSelfRegister;
-import com.pffft.tfcr.items.ItemInventoryRegisterer;
+import com.pffft.tfcr.items.ItemIngot;
 import com.pffft.tfcr.items.ItemOre;
 import com.pffft.tfcr.items.ItemOre.Richness;
 
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -24,22 +23,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid=TFCR.MODID)
 public class ModItems {
+
+	public static Item[] oresList = 
+		(Arrays.stream(OreType.values()).map(ore -> new ItemOre(ore.getName() + "_normal", 0, Richness.NORMAL)).toArray(Item[]::new));
 	
-	public static final ItemOre ITEM_COPPER_ORE_POOR = new ItemOre("copper_poor", 2, Richness.POOR);
-	public static final ItemOre ITEM_IRON_ORE_POOR = new ItemOre("iron_poor", 3, Richness.POOR);
-	public static final ItemOre ITEM_BISMUTH_ORE_POOR = new ItemOre("bismuth_poor", 0, Richness.POOR);
+	public static Item[] ingotsList =
+		(Arrays.stream(MetalType.values()).map(metal -> new ItemIngot(metal.getName())).toArray(Item[]::new));
 
 	// List of all items we're keeping track of. Automatically registers them.
-	private static Item[] itemsList = new Item[]{
-		ITEM_COPPER_ORE_POOR,
-		ITEM_IRON_ORE_POOR,
-		ITEM_BISMUTH_ORE_POOR
-	};
-	
-	
+	public static Item[] itemsList = ArrayUtils.addAll(oresList, ingotsList);
+
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		for (int i = 0; i < itemsList.length; i++) {
+			System.out.println("Registering item: " + itemsList[i].getRegistryName());
 			if (itemsList[i] instanceof IItemSelfRegister) {
 				((IItemSelfRegister)itemsList[i]).registerItem(event, itemsList[i]);
 			} else {
