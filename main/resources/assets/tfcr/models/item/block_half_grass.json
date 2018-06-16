@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "tfcr:blocks/block_half_grass"
+    }
+}

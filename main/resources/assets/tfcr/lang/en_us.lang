@@ -6,6 +6,7 @@ tile.block_firepit.name=Firepit
 tile.block_half_grass.name=Half-Tall Grass
 tile.block_branch.name=Branch
 tile.weak_stone.name=Weak Stone
+tile.block_carnation.name=Carnation
 
 generator.TerraFirmaCraft=TFC Default
 

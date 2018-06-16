@@ -1,0 +1,30 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "minecraft:tinted_cross",
+        "textures": {
+            "cross": "tfcr:blocks/carnation_0"
+        }
+    },
+    "variants": {
+        "normal": [{
+            "textures": {
+                "cross": "tfcr:blocks/carnation_0"
+            }
+          }, {
+            "textures": {
+                "cross": "tfcr:blocks/carnation_1"
+            }
+          }, {
+            "textures": {
+                "cross": "tfcr:blocks/carnation_2"
+            }
+          }],
+        "inventory": [{
+          "model": "minecraft:item_generated",
+          "textures": {
+              "layer0": "tfcr:blocks/carnation_0"
+          }
+        }]
+    }
+}

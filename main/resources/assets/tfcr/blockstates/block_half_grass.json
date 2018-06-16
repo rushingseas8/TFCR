@@ -8,6 +8,11 @@
     },
     "variants": {
         "normal": [ { } ],
-        "inventory": [ { } ]
+        "inventory": [{
+          "model": "minecraft:item_generated",
+          "textures": {
+              "layer0": "tfcr:blocks/block_half_grass"
+          }
+        }]
     }
 }

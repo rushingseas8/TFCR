@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.blocks.BlockBarrel;
 import com.pffft.tfcr.blocks.BlockFirepit;
+import com.pffft.tfcr.blocks.BlockFlower;
 import com.pffft.tfcr.blocks.BlockHalfGrass;
 import com.pffft.tfcr.blocks.BlockLeaves;
 import com.pffft.tfcr.blocks.BlockSmallWood;
@@ -112,13 +113,16 @@ public class ModBlocks {
 	
 	public static final BlockWeakStone BLOCK_WEAK_STONE = new BlockWeakStone();
 	
+	public static final BlockFlower BLOCK_CARNATION = new BlockFlower("carnation");
+			
 	// List of all blocks we're keeping track of. Automatically registers them.
 	private static Block[] blocksList = new Block[] {
 			BLOCK_BARREL,
 			BLOCK_FIREPIT,
 			BLOCK_HALF_GRASS,
 			BLOCK_SMALL_WOOD,
-			BLOCK_WEAK_STONE
+			BLOCK_WEAK_STONE,
+			BLOCK_CARNATION
 	};
 	
 	// Adds in all of the lists of items we have.

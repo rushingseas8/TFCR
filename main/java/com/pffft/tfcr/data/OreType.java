@@ -3,7 +3,7 @@ package com.pffft.tfcr.data;
 import net.minecraft.util.IStringSerializable;
 
 public enum OreType implements IStringSerializable {
-
+	
 	BISMUTHINITE,
 	BITUMINOUS_COAL,
 	BORAX,
@@ -39,6 +39,16 @@ public enum OreType implements IStringSerializable {
 	SULFUR,
 	SYLVITE,
 	TETRAHEDRITE;
+
+	public int meltingTemp;
+	
+	private OreType() {
+		this.meltingTemp = 0;
+	}
+	
+	private OreType(int meltingTemp) {
+		this.meltingTemp = meltingTemp;
+	}
 	
 	@Override
 	public String getName() {

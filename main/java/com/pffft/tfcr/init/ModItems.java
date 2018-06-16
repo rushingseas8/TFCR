@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ModItems {
 
 	public static Item[] oresList = 
-		(Arrays.stream(OreType.values()).map(ore -> new ItemOre(ore.getName() + "_normal", 0, Richness.NORMAL)).toArray(Item[]::new));
+		(Arrays.stream(OreType.values()).map(ore -> new ItemOre(ore.getName() + "_normal", ore.meltingTemp, Richness.NORMAL)).toArray(Item[]::new));
 	
 	public static Item[] ingotsList =
 		(Arrays.stream(MetalType.values()).map(metal -> new ItemIngot(metal.getName())).toArray(Item[]::new));
@@ -36,7 +36,7 @@ public class ModItems {
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		for (int i = 0; i < itemsList.length; i++) {
-			System.out.println("Registering item: " + itemsList[i].getRegistryName());
+			//System.out.println("Registering item: " + itemsList[i].getRegistryName());
 			if (itemsList[i] instanceof IItemSelfRegister) {
 				((IItemSelfRegister)itemsList[i]).registerItem(event, itemsList[i]);
 			} else {
