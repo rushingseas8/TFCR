@@ -17,25 +17,18 @@ itemModelOutput = "../main/resources/assets/tfcr/models/item/wood/logs/"
 leaves = ["wood_" + l for l in getWoodTypes()]
 
 rawBlockStateJSON = '''{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tfcr:wood/block_log",
+        "textures": {
+            "side": "tfcr:blocks/wood/bark/NAME",
+            "end": "tfcr:blocks/wood/log/NAME"
+        }
+    },
     "variants": {
-        "normal": [{
-            "model": "''' + MODID + modelPath + '''NAME"
-        }]
+        "normal": [ { } ],
+        "inventory": [ { } ]
     }
-}
-'''
-
-rawModelJSON = '''{
-    "parent": "block/cube_column",
-    "textures": {
-        "side": "''' + MODID + barkTexturePath + '''NAME",
-        "end": "''' + MODID + logTexturePath + '''NAME"
-    }
-}
-'''
-
-rawItemModelJSON = '''{
-    "parent": "''' + MODID + itemModelPath + '''NAME"
 }
 '''
 
@@ -60,7 +53,8 @@ for s in leaves:
     f = open(blockstateOutput + s + ".json", "w")
     f.write(json)
     f.close()
-   
+
+    '''   
     json = rawModelJSON.replace('NAME', s)
     
     f = open(modelOutput + s + ".json", "w")
@@ -72,5 +66,6 @@ for s in leaves:
     f = open(itemModelOutput + s + ".json", "w")
     f.write(json)
     f.close()
+    '''
 
 print("successfully created " + str(len(leaves)) + " logs.")

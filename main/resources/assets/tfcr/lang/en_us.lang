@@ -52,6 +52,27 @@ tile.leaves_palm.name=Palm Leaves
 tile.leaves_sequoia.name=Sequoia Leaves
 tile.leaves_white_cedar.name=White Cedar Leaves
 
+tile.block_branch_acacia.name=Acacia Branch
+tile.block_branch_birch.name=Birch Branch
+tile.block_branch_douglas_fir.name=Douglas Fir Branch
+tile.block_branch_maple.name=Maple Branch
+tile.block_branch_pine.name=Pine Branch
+tile.block_branch_spruce.name=Spruce Branch
+tile.block_branch_white_elm.name=White Elm Branch
+tile.block_branch_ash.name=Ash Branch
+tile.block_branch_blackwood.name=Blackwood Branch
+tile.block_branch_hickory.name=Hickory Branch
+tile.block_branch_oak.name=Oak Branch
+tile.block_branch_rosewood.name=Rosewood Branch
+tile.block_branch_sycamore.name=Sycamore Branch
+tile.block_branch_willow.name=Willow Branch
+tile.block_branch_aspen.name=Aspen Branch
+tile.block_branch_chestnut.name=Chestnut Branch
+tile.block_branch_kapok.name=Kapok Branch
+tile.block_branch_palm.name=Palm Branch
+tile.block_branch_sequoia.name=Sequoia Branch
+tile.block_branch_white_cedar.name=White Cedar Branch
+
 item.ore_bismuthinite_normal.name=Bismuthinite Ore
 item.ore_cinnabar_normal.name=Cinnabar Ore
 item.ore_graphite_normal.name=Graphite Ore

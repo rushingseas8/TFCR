@@ -1,7 +1,13 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tfcr:wood/block_leaves",
+        "textures": {
+            "all": "tfcr:blocks/wood/leaves/leaves_acacia"
+        }
+    },
     "variants": {
-        "normal": [{
-            "model": "tfcr:wood/leaves/leaves_acacia"
-        }]
+        "normal": [ { } ],
+        "inventory": [ { } ]
     }
 }

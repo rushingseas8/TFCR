@@ -1,7 +1,14 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tfcr:wood/block_log",
+        "textures": {
+            "side": "tfcr:blocks/wood/bark/wood_acacia",
+            "end": "tfcr:blocks/wood/log/wood_acacia"
+        }
+    },
     "variants": {
-        "normal": [{
-            "model": "tfcr:wood/logs/wood_acacia"
-        }]
+        "normal": [ { } ],
+        "inventory": [ { } ]
     }
 }

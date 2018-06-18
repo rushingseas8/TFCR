@@ -5,8 +5,12 @@ import json
 
 directories = [
     "main/resources/assets/tfcr/blockstates",
-    "main/resources/assets/tfcr/models/item",
-    "main/resources/assets/tfcr/models/block"
+    "main/resources/assets/tfcr/blockstates/wood/branches",
+    "main/resources/assets/tfcr/blockstates/wood/leaves",
+    "main/resources/assets/tfcr/blockstates/wood/logs",
+    "main/resources/assets/tfcr/models/block/wood",
+    "main/resources/assets/tfcr/models/block",
+    "main/resources/assets/tfcr/models/item"
 ]
 
 errorString = ""

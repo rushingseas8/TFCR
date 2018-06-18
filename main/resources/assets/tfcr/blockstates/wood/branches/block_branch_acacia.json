@@ -1,0 +1,40 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "side": "tfcr:blocks/wood/bark/wood_acacia",
+      "end": "tfcr:blocks/wood/log/wood_acacia",
+      "particle": "tfcr:blocks/wood/bark/wood_acacia"
+    },
+    "model": "tfcr:wood/branches/block_branch_4"
+  },
+    "variants": {
+    "width": {
+      "four": {
+        "model": "tfcr:wood/branches/block_branch_4"
+      },
+      "six": {
+        "model": "tfcr:wood/branches/block_branch_6"
+      },
+      "eight": {
+        "model": "tfcr:wood/branches/block_branch_8"
+      },
+      "ten": {
+        "model": "tfcr:wood/branches/block_branch_10"
+      },
+      "twelve": {
+        "model": "tfcr:wood/branches/block_branch_12"
+      }
+    },
+    "axis": {
+      "y": {},
+      "z": {
+        "x": 90
+      },
+      "x": {
+        "x": 90,
+        "y": 90
+      }
+    }
+    }
+}

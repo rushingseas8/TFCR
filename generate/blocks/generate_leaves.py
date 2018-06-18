@@ -15,39 +15,19 @@ itemModelOutput = "../main/resources/assets/tfcr/models/item/wood/leaves/"
 # Get all the wood names
 leaves = ["leaves_" + l for l in getWoodTypes()]
 
+
 rawBlockStateJSON = '''{
-    "variants": {
-        "normal": [{
-            "model": "''' + MODID + modelPath + '''NAME"
-        }]
-    }
-}
-'''
-
-rawModelJSON = '''{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "''' + MODID + texturePath + '''NAME"
+    "forge_marker": 1,
+    "defaults": {
+        "model": "tfcr:wood/block_leaves",
+        "textures": {
+            "all": "tfcr:blocks/wood/leaves/NAME"
+        }
     },
-    "elements": [
-         {
-             "from": [ 0, 0, 0 ],
-             "to": [ 16, 16, 16 ],
-             "faces": {
-                "down":  { "tintindex": 0, "texture": "#all", "cullface": "down" },
-                "up":    { "tintindex": 0, "texture": "#all", "cullface": "up" },
-                "north": { "tintindex": 0, "texture": "#all", "cullface": "north" },
-                "south": { "tintindex": 0, "texture": "#all", "cullface": "south" },
-                "west":  { "tintindex": 0, "texture": "#all", "cullface": "west" },
-                "east":  { "tintindex": 0, "texture": "#all", "cullface": "east" }
-            }
-         }
-    ]
-}
-'''
-
-rawItemModelJSON = '''{
-    "parent": "''' + MODID + itemModelPath + '''NAME"
+    "variants": {
+        "normal": [ { } ],
+        "inventory": [ { } ]
+    }
 }
 '''
 
@@ -72,7 +52,8 @@ for s in leaves:
     f = open(blockstateOutput + s + ".json", "w")
     f.write(json)
     f.close()
-   
+
+    '''
     json = rawModelJSON.replace('NAME', s)
     
     f = open(modelOutput + s + ".json", "w")
@@ -84,5 +65,6 @@ for s in leaves:
     f = open(itemModelOutput + s + ".json", "w")
     f.write(json)
     f.close()
+    '''
 
 print("successfully created " + str(len(leaves)) + " leaves.")

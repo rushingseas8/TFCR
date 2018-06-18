@@ -3,7 +3,7 @@ package com.pffft.tfcr.worldgen;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.pffft.tfcr.blocks.BlockSmallWood;
+import com.pffft.tfcr.blocks.BlockBranch;
 import com.pffft.tfcr.data.TreeType;
 import com.pffft.tfcr.init.ModBlocks;
 
@@ -87,9 +87,9 @@ public class WorldGenTreeClimate extends WorldGenerator {
 		if (nextRand == 0) {
 			testState = ModBlocks.WOOD_ASH.getDefaultState();
 		} else if (nextRand == 1) {
-			testState = ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.EIGHT);
+			testState = BlockBranch.branchList[0].getDefaultState().withProperty(BlockBranch.DIAMETER, BlockBranch.EnumDiameter.EIGHT);
 		} else {
-			testState = ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.TWELVE);
+			testState = BlockBranch.branchList[0].getDefaultState().withProperty(BlockBranch.DIAMETER, BlockBranch.EnumDiameter.TWELVE);
 		}
 		
 		int height;
@@ -225,7 +225,8 @@ public class WorldGenTreeClimate extends WorldGenerator {
 			IBlockState state = worldIn.getBlockState(upN);
 			if (state.getBlock().isAir(state, worldIn, upN)) {
 				//setBlockAndNotify(worldIn, basePos.up(i), tree.log, notify);
-				setBlockAndNotify(worldIn, basePos.up(i), ModBlocks.BLOCK_SMALL_WOOD.getDefaultState().withProperty(BlockSmallWood.DIAMETER, BlockSmallWood.EnumDiameter.EIGHT), notify);
+				//setBlockAndNotify(worldIn, basePos.up(i), ModBlocks.BlockBranch[0].getDefaultState().withProperty(BlockBranch.DIAMETER, BlockBranch.EnumDiameter.EIGHT), notify);
+				setBlockAndNotify(worldIn, basePos.up(i), BlockBranch.get(tree, BlockBranch.EnumDiameter.EIGHT), notify);
 			}
 		}
 	}

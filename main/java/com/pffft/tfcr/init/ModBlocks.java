@@ -1,18 +1,21 @@
 package com.pffft.tfcr.init;
 
+import java.util.Arrays;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.pffft.tfcr.TFCR;
 import com.pffft.tfcr.blocks.BlockBarrel;
+import com.pffft.tfcr.blocks.BlockBranch;
 import com.pffft.tfcr.blocks.BlockFirepit;
 import com.pffft.tfcr.blocks.BlockFlower;
 import com.pffft.tfcr.blocks.BlockHalfGrass;
 import com.pffft.tfcr.blocks.BlockLeaves;
-import com.pffft.tfcr.blocks.BlockSmallWood;
 import com.pffft.tfcr.blocks.BlockWeakStone;
 import com.pffft.tfcr.blocks.BlockWood;
 import com.pffft.tfcr.blocks.IBlockSelfRegister;
 import com.pffft.tfcr.blocks.ISelfRegister;
+import com.pffft.tfcr.data.TreeType;
 import com.pffft.tfcr.items.IItemSelfRegister;
 
 import net.minecraft.block.Block;
@@ -103,27 +106,33 @@ public class ModBlocks {
 		LEAVES_WHITE_ELM,
 		LEAVES_WILLOW
 	};
+
+	/**
+	 * Branch variations for every log type
+	 */
+	//public static final BlockBranch BLOCK_SMALL_WOOD = new BlockBranch();
+	//public static Block[] branchList = 
+	//	(Arrays.stream(TreeType.values()).map(tree -> new BlockBranch(tree.getName())).toArray(Block[]::new));
+	
 	
 	public static final BlockFirepit BLOCK_FIREPIT = new BlockFirepit();
 	public static final BlockBarrel BLOCK_BARREL = new BlockBarrel();
 	
 	public static final BlockHalfGrass BLOCK_HALF_GRASS = new BlockHalfGrass();
 	
-	public static final BlockSmallWood BLOCK_SMALL_WOOD = new BlockSmallWood();
 	
 	public static final BlockWeakStone BLOCK_WEAK_STONE = new BlockWeakStone();
 	
 	public static final BlockFlower BLOCK_CARNATION = new BlockFlower("carnation");
 			
 	// List of all blocks we're keeping track of. Automatically registers them.
-	private static Block[] blocksList = new Block[] {
-			BLOCK_BARREL,
-			BLOCK_FIREPIT,
-			BLOCK_HALF_GRASS,
-			BLOCK_SMALL_WOOD,
-			BLOCK_WEAK_STONE,
-			BLOCK_CARNATION
-	};
+	private static Block[] blocksList = ArrayUtils.addAll(new Block[] {
+		BLOCK_BARREL,
+		BLOCK_FIREPIT,
+		BLOCK_HALF_GRASS,
+		BLOCK_WEAK_STONE,
+		BLOCK_CARNATION
+	}, BlockBranch.branchList);
 	
 	// Adds in all of the lists of items we have.
 	static {
